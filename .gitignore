@@ -1,4 +1,6 @@
 .idea/
+db.sqlite3
+static_cdn
 
 # Created by .ignore support plugin (hsz.mobi)
 ### Python template
