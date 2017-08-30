@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}
+    {{ recipe.title }} | {{ block.super }}
+{% endblock head_title %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">{{ recipe.title }}</h4>
+                    <hr/>
+                    <div class="card-text">
+                        <div class="card border-light text-white bg-primary mb-3" style="max-width: 20rem;">
+                            <div class="card-header">Ingredients List</div>
+                            <div class="card-body">
+                                {% for ingredient in ingredients %}
+                                    <p class="card-text">
+                                        {{ ingredient.name }} {{ ingredient.quantity }} {{ ingredient.unit }}
+                                    </p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <hr/>
+                    </div>
+                    <h5 class="card-title"> Preparation mode</h5>
+                    <p class="card-text">{{ recipe.preparation_mode }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <div class="container">
+                <div class="row">
+                    <h1>{{ title }}</h1>
+                </div>
+                <div class="row">
+                    <form method="get" action="">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" name="q" placeholder="Search recipes" value="{{ request.GET.q }}"/>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default  mr-3" type="submit"/><i class="fa fa-search" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </form>
+                    <a href="{{ object_list.get_absolute_url }}create" class="btn btn-primary pull-right mb-3">
+                        <i class="fa fa-plus"></i> Add new</a>
+                </div>
+                <div class="row">
+                    <div class="card-deck">
+                        {% for recipe in recipes %}
+                            <div class="card mb-3">
+                                <a href="{{ recipe.get_absolute_url }}" style="color: #212529;">
+                                    <img class="card-img-top"
+                                         src="https://www.pingodoce.pt/wp-content/uploads/2017/08/coroa-de-pizza.jpg"
+                                         alt="Card image cap">
+                                    <div class="card-block">
+                                        <h4 class="card-title ml-3 mt-1">{{ recipe.title }}</h4>
+                                        <small class="card-text ml-3">{{ recipe.preparation_mode }}</small>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
